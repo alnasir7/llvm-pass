@@ -7,10 +7,18 @@ int magic(int x)
 
 int main()
 {
-    printf("hi");
+    int outer = 30;
+    int inner = 100;
+    int array[outer * inner];
     int sum = 0;
-    for (int i = 0; i < 10; i++)
+    for (int i = 0; i < outer; i++)
     {
-        sum += i;
+        for (int j = 0; j < inner; j++)
+        {
+            array[i * inner + j] = i * j;
+            sum += array[i * inner + j];
+        }
     }
+
+    fprintf("%d", sum);
 }
